@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>PostgresSharding.Benchmark.ReadWriteBenchmark-20230923-204728</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.13.8, Windows 11 (10.0.22621.2283/22H2/2022Update/SunValley2)
+AMD Ryzen 9 5900HX with Radeon Graphics, 1 CPU, 16 logical and 8 physical cores
+.NET SDK 7.0.306
+  [Host]     : .NET 7.0.9 (7.0.923.32018), X64 RyuJIT AVX2
+  DefaultJob : .NET 7.0.9 (7.0.923.32018), X64 RyuJIT AVX2
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>Method      </th><th>Connection</th><th>Mean  </th><th>Error</th><th>StdDev</th><th>Median</th>
+</tr>
+</thead><tbody><tr><td>Insert</td><td>Citus</td><td>1.391 ms</td><td>0.0350 ms</td><td>0.0945 ms</td><td>1.359 ms</td>
+</tr><tr><td>GetCount</td><td>Citus</td><td>35.936 ms</td><td>1.2284 ms</td><td>3.6028 ms</td><td>35.209 ms</td>
+</tr><tr><td>GetById</td><td>Citus</td><td>31.744 ms</td><td>1.0659 ms</td><td>3.0925 ms</td><td>31.158 ms</td>
+</tr><tr><td>GetByIdAndCategory</td><td>Citus</td><td>20.813 ms</td><td>0.5438 ms</td><td>1.5948 ms</td><td>20.780 ms</td>
+</tr><tr><td>Insert</td><td>Fdw</td><td>2.009 ms</td><td>0.0399 ms</td><td>0.1151 ms</td><td>1.973 ms</td>
+</tr><tr><td>GetCount</td><td>Fdw</td><td>1,135.720 ms</td><td>18.1303 ms</td><td>16.0720 ms</td><td>1,136.902 ms</td>
+</tr><tr><td>GetById</td><td>Fdw</td><td>64.511 ms</td><td>1.2327 ms</td><td>1.6028 ms</td><td>64.045 ms</td>
+</tr><tr><td>GetByIdAndCategory</td><td>Fdw</td><td>32.854 ms</td><td>0.4601 ms</td><td>0.3842 ms</td><td>32.681 ms</td>
+</tr><tr><td>Insert</td><td>NoSharding</td><td>1.170 ms</td><td>0.0233 ms</td><td>0.0611 ms</td><td>1.152 ms</td>
+</tr><tr><td>GetCount</td><td>NoSharding</td><td>52.039 ms</td><td>1.4899 ms</td><td>4.3929 ms</td><td>50.930 ms</td>
+</tr><tr><td>GetById</td><td>NoSharding</td><td>40.533 ms</td><td>1.1325 ms</td><td>3.3215 ms</td><td>40.131 ms</td>
+</tr><tr><td>GetByIdAndCategory</td><td>NoSharding</td><td>40.706 ms</td><td>1.0783 ms</td><td>3.1795 ms</td><td>40.391 ms</td>
+</tr></tbody></table>
+</body>
+</html>
